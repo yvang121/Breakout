@@ -9,7 +9,7 @@ import java.awt.*;
  */
 public class Paddle {
     private GRect paddle;
-    private static final int PADDLE_WIDTH = 70;
+    private static final int PADDLE_WIDTH = 100;
     private static final int PADDLE_HEIGHT = 10;
 
     public Paddle() {
