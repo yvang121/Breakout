@@ -14,6 +14,7 @@ public class BreakoutProgram extends GraphicsProgram {
     Paddle paddle;
     private static final int PADDLE_HEIGHT_PLACEMENT = 75;
 
+    // Run method for the Breakout program.
     public void run() {
         setBackground(Color.DARK_GRAY);
         wall = new BreakoutWall();
