@@ -74,83 +74,44 @@ public class BreakoutProgram extends GraphicsProgram {
         Random randBoolean = new Random();
         Boolean randBool = randBoolean.nextBoolean();
 
-        if (randBool == false) {
-            while (true) {
+        while (true) {
                 /*
                 If the Boolean returns false, move in the diagonal left downward.
                  */
-                ball.getBall().move(-BALL_MOVE, BALL_MOVE);
-                ball.getBall().pause(55);
+            ball.getBall().move(-BALL_MOVE, BALL_MOVE);
+            ball.getBall().pause(55);
 
                 /*
                 If the top left corner AND top right corner hit an object, move ball in opposite Y direction.
                  */
-                if (getElementAt(ball.getBallX(), ball.getBallY() - 1) != null &&
-                        getElementAt((ball.getBallX() + ball.getBallWidth()), ball.getBallY() - 1) != null) {
-                    while (true) {
-                        ball.getBall().move(-BALL_MOVE, -BALL_MOVE);
-                    }
-                }
-                /*
-                If top right corner AND bottom right corner hit an object, move ball in opposite X direction.
-                 */
-                else if (getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY()) != null
-                        && getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY() + ball.getBallHeight()) != null) {
-                    ball.getBall().move(BALL_MOVE, BALL_MOVE);
-                }
-                /*
-                If bottom right corner AND bottom left corner hit an object, move ball in opposite Y direction.
-                 */
-                else if (getElementAt(ball.getBallX() + ball.getBallWidth(), ball.getBallY() + ball.getBallHeight() + 1) != null
-                        && getElementAt(ball.getBallX(), ball.getBallY() + ball.getBallHeight() + 1) != null) {
-                    while (true) {
-                        ball.getBall().move(-BALL_MOVE, -BALL_MOVE);
-                    }
-                }
-                /*
-                If bottom left corner AND top left corner hit an object, move ball in opposite X direction.
-                 */
-                else if(getElementAt(ball.getBallX() - 1, ball.getBallY() + ball.getBallHeight()) != null
-                        && getElementAt(ball.getBallX() - 1, ball.getBallY()) != null) {
-                    ball.getBall().move(-BALL_MOVE, BALL_MOVE);
-                }
-            }
-        } else {
-            while (true) {
-                /*
-                If Boolean returns true, move in the diagonal right downward
-                 */
-                ball.getBall().move(BALL_MOVE, BALL_MOVE);
-                ball.getBall().pause(55);
-
-                /*
-                If the top left corner AND top right corner hit an object, move ball in opposite Y direction.
-                 */
-                if (getElementAt(ball.getBallX(), ball.getBallY() - 1) != null &&
-                        getElementAt((ball.getBallX() + ball.getBallWidth()), ball.getBallY() - 1) != null) {
+            if (getElementAt(ball.getBallX(), ball.getBallY() - 1) != null &&
+                    getElementAt((ball.getBallX() + ball.getBallWidth()), ball.getBallY() - 1) != null) {
+                while (true) {
                     ball.getBall().move(-BALL_MOVE, -BALL_MOVE);
                 }
+            }
                 /*
                 If top right corner AND bottom right corner hit an object, move ball in opposite X direction.
                  */
-                else if (getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY()) != null
-                        && getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY() + ball.getBallHeight()) != null) {
-                    ball.getBall().move(BALL_MOVE, BALL_MOVE);
-                }
+            else if (getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY()) != null
+                    && getElementAt(ball.getBallX() + ball.getBallWidth() + 1, ball.getBallY() + ball.getBallHeight()) != null) {
+                ball.getBall().move(BALL_MOVE, BALL_MOVE);
+            }
                 /*
                 If bottom right corner AND bottom left corner hit an object, move ball in opposite Y direction.
                  */
-                else if (getElementAt(ball.getBallX() + ball.getBallWidth(), ball.getBallY() + ball.getBallHeight() + 1) != null
-                        && getElementAt(ball.getBallX(), ball.getBallY() + ball.getBallHeight() + 1) != null) {
-                    ball.getBall().move(BALL_MOVE, -BALL_MOVE);
+            else if (getElementAt(ball.getBallX() + ball.getBallWidth(), ball.getBallY() + ball.getBallHeight() + 1) != null
+                    && getElementAt(ball.getBallX(), ball.getBallY() + ball.getBallHeight() + 1) != null) {
+                while (true) {
+                    ball.getBall().move(-BALL_MOVE, -BALL_MOVE);
                 }
+            }
                 /*
                 If bottom left corner AND top left corner hit an object, move ball in opposite X direction.
                  */
-                else if(getElementAt(ball.getBallX() - 1, ball.getBallY() + ball.getBallHeight()) != null
-                        && getElementAt(ball.getBallX() - 1, ball.getBallY()) != null) {
-                    ball.getBall().move(-BALL_MOVE, BALL_MOVE);
-                }
+            else if(getElementAt(ball.getBallX() - 1, ball.getBallY() + ball.getBallHeight()) != null
+                    && getElementAt(ball.getBallX() - 1, ball.getBallY()) != null) {
+                ball.getBall().move(-BALL_MOVE, BALL_MOVE);
             }
         }
     }
