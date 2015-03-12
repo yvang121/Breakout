@@ -8,11 +8,11 @@ import java.awt.*;
  * Created by Ye Vang on 3/11/2015.
  */
 public class BreakoutWall extends GCompound {
-    Brick redBrick = new Brick(Color.RED);
+    Brick brick = new Brick(Color.RED);
 
     public BreakoutWall() {
-        for (int i = 0; i < redBrick.getBrick().getWidth()* 10; i += redBrick.getBrick().getWidth()) {
-            for (int j = 0; j < redBrick.getBrick().getHeight() * 2; j += redBrick.getBrick().getHeight()) {
+        for (int i = 0; i < brick.getBrick().getWidth()* 10; i += brick.getBrick().getWidth()) {
+            for (int j = 0; j < brick.getBrick().getHeight() * 2; j += brick.getBrick().getHeight()) {
                 Brick redBrick = new Brick(Color.RED);
                 add(redBrick.getBrick(), i, j);
 

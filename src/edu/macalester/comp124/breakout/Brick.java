@@ -9,7 +9,7 @@ import java.awt.*;
  */
 public class Brick {
     private GRect brick;
-    private static final int BRICK_WIDTH = 80;
+    private static final int BRICK_WIDTH = 90;
     private static final int BRICK_HEIGHT = 25;
 
     public Brick (Color color) {
@@ -20,9 +20,7 @@ public class Brick {
 
     @Override
     public String toString() {
-        return "Brick{" +
-                "brick=" + brick +
-                '}';
+        return "Brick = " + brick;
     }
 
     public GRect getBrick() {
