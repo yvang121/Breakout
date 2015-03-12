@@ -30,4 +30,12 @@ public class Brick {
     public void setBrick(GRect brick) {
         this.brick = brick;
     }
+
+    public double getBrickWidth() {
+        return brick.getWidth();
+    }
+
+    public double getBrickHeight() {
+        return brick.getHeight();
+    }
 }

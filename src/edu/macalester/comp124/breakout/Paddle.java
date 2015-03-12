@@ -25,4 +25,20 @@ public class Paddle {
     public void setPaddle(GRect paddle) {
         this.paddle = paddle;
     }
+
+    public int getPaddleX() {
+        return (int) paddle.getX();
+    }
+
+    public int getPaddleY() {
+        return (int) paddle.getY();
+    }
+
+    public int getPaddleWidth() {
+        return (int) paddle.getWidth();
+    }
+
+    public int getPaddleHeight() {
+        return (int) paddle.getHeight();
+    }
 }

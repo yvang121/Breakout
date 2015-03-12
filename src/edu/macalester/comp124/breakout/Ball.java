@@ -24,4 +24,20 @@ public class Ball {
     public void setBall(GOval ball) {
         this.ball = ball;
     }
+
+    public int getBallHeight() {
+        return (int) ball.getHeight();
+    }
+
+    public int getBallX() {
+        return (int) ball.getX();
+    }
+
+    public int getBallY() {
+        return (int) ball.getY();
+    }
+
+    public int getBallWidth() {
+        return (int) ball.getWidth();
+    }
 }
