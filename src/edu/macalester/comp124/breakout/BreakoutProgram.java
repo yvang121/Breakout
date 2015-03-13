@@ -73,6 +73,7 @@ public class BreakoutProgram extends GraphicsProgram {
     public void animateBall() {
         Random randBoolean = new Random();
         Boolean randBool = randBoolean.nextBoolean();
+        // add a ball animation
 
         while (true) {
                 /*
