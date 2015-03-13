@@ -7,37 +7,35 @@ import java.awt.*;
 /**
  * Created by Ye Vang on 3/11/2015.
  */
-public class Ball {
-    private GOval ball;
+public class Ball extends GOval {
     private static final int BALL_RADIUS = 15;
+    private double dx = 7;
+    private double dy = 7;
 
     public Ball() {
-        this.ball = new GOval(BALL_RADIUS, BALL_RADIUS);
-        this.ball.setFilled(true);
-        this.ball.setFillColor(Color.WHITE);
+        super(BALL_RADIUS, BALL_RADIUS);
+        setFilled(true);
+        setFillColor(Color.WHITE);
     }
 
-    public GOval getBall() {
-        return ball;
+    public double getDx() {
+        return dx;
     }
 
-    public void setBall(GOval ball) {
-        this.ball = ball;
+    public double getDy() {
+        return dy;
     }
 
-    public int getBallHeight() {
-        return (int) ball.getHeight();
+    public void setDx(double newValue) {
+        dx = newValue;
     }
 
-    public int getBallX() {
-        return (int) ball.getX();
+    public void setDy(double newValue) {
+        dy = newValue;
     }
 
-    public int getBallY() {
-        return (int) ball.getY();
-    }
-
-    public int getBallWidth() {
-        return (int) ball.getWidth();
+    public void move() {
+        this.move(dx, dy);
+        this.pause(10);
     }
 }

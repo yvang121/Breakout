@@ -38,4 +38,6 @@ public class BreakoutWall extends GCompound {
     public int getWallWidth() {
         return (int) brick.getBrickWidth()*10;
     }
+
+
 }

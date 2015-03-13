@@ -8,6 +8,9 @@ import java.awt.*;
  * Created by Ye Vang on 3/11/2015.
  */
 public class Brick {
+
+    // TO DO: make brick extend GRect then fix getters/setters (no need for them);
+
     private GRect brick;
     private static final int BRICK_WIDTH = 90;
     private static final int BRICK_HEIGHT = 25;
