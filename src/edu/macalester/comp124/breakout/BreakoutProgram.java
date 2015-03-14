@@ -97,7 +97,7 @@ public class BreakoutProgram extends GraphicsProgram {
                     remove(brickWall.getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1));
                 }
                 ball.setDy(-ball.getDy());
-            }
+            } //
 //                If top right corner AND bottom right corner hit an object, move ball in opposite X direction.
             else if ((getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1)) != null &&
                     getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() + ball.getHeight() + 1) != null) {
