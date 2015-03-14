@@ -11,33 +11,23 @@ public class BreakoutWall extends GCompound {
     Brick brick = new Brick(Color.RED);
 
     public BreakoutWall() {
-        for (int i = 0; i < brick.getBrickWidth()* 10; i += brick.getBrickWidth()) {
-            for (int j = 0; j < brick.getBrickHeight() * 2; j += brick.getBrickHeight()) {
+        for (int i = 0; i < brick.getWidth()* 10; i += brick.getWidth()) {
+            for (int j = 0; j < brick.getHeight() * 2; j += brick.getHeight()) {
                 Brick redBrick = new Brick(Color.RED);
-                add(redBrick.getBrick(), i, j + 125);
+                add(redBrick, i, j);
 
                 Brick orangeBrick = new Brick(Color.ORANGE);
-                add(orangeBrick.getBrick(), i, j + orangeBrick.getBrickHeight()*2 + 125);
+                add(orangeBrick, i, j + orangeBrick.getHeight()*2);
 
                 Brick yellowBrick = new Brick(Color.YELLOW);
-                add(yellowBrick.getBrick(), i, j + yellowBrick.getBrickHeight()*4 + 125);
+                add(yellowBrick, i, j + yellowBrick.getHeight()*4);
 
                 Brick greenBrick = new Brick(Color.GREEN);
-                add(greenBrick.getBrick(), i, j + greenBrick.getBrickHeight()*6 + 125);
+                add(greenBrick, i, j + greenBrick.getHeight()*6);
 
                 Brick cyanBrick = new Brick(Color.CYAN);
-                add(cyanBrick.getBrick(), i, j + cyanBrick.getBrickHeight()*8 + 125);
+                add(cyanBrick, i, j + cyanBrick.getHeight()*8);
             }
         }
     }
-
-    public int getWallHeight() {
-        return (int) brick.getBrickHeight()*10 + 125;
-    }
-
-    public int getWallWidth() {
-        return (int) brick.getBrickWidth()*10;
-    }
-
-
 }

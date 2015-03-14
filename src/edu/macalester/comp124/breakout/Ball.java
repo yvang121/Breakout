@@ -36,6 +36,6 @@ public class Ball extends GOval {
 
     public void move() {
         this.move(dx, dy);
-        this.pause(10);
+        this.pause(55);
     }
 }
