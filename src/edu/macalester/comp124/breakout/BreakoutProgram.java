@@ -87,13 +87,18 @@ public class BreakoutProgram extends GraphicsProgram {
                 if (getElementAt(ball.getX(), ball.getY()) instanceof Brick
                         && getElementAt(ball.getX() + ball.getWidth(), ball.getY()) instanceof Brick) {
                     remove(getElementAt(ball.getX(), ball.getY()));
+                    brickCount--;
                 }
                 ball.setDy(-ball.getDy());
             } //
 //                If top right corner AND bottom right corner hit an object, move ball in opposite X direction.
             else if ((getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1)) != null &&
                     getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() + ball.getHeight() + 1) != null) {
-                remove(getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1));
+                if ((getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1)) instanceof Brick
+                        && getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() + ball.getHeight() + 1) instanceof Brick) {
+                    remove(getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() - 1));
+                    brickCount--;
+                }
                 ball.setDx(-ball.getDx());
             }
 //                If bottom right corner AND bottom left corner hit an object, move ball in opposite Y direction.
@@ -102,6 +107,7 @@ public class BreakoutProgram extends GraphicsProgram {
                 if (getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() + ball.getHeight() + 1) instanceof Brick
                         && getElementAt(ball.getX() - 1, ball.getY() + ball.getHeight() + 1) instanceof Brick) {
                     remove(getElementAt(ball.getX() + ball.getWidth() + 1, ball.getY() + ball.getHeight() + 1));
+                    brickCount--;
                 }
                 ball.setDy(-ball.getDy());
             }
@@ -111,8 +117,10 @@ public class BreakoutProgram extends GraphicsProgram {
                     || getElementAt(ball.getX() + ball.getWidth()/2, ball.getY() + ball.getHeight() + 1) != null) {
                 if (getElementAt(ball.getX() - 1, ball.getY() + ball.getHeight()) instanceof Brick) {
                     remove(getElementAt(ball.getX() - 1, ball.getY() + ball.getHeight()));
+                    brickCount--;
                 } else if (getElementAt(ball.getX() + ball.getWidth(), ball.getY() + ball.getHeight()) instanceof Brick) {
                     remove(getElementAt(ball.getX() + ball.getWidth(), ball.getY() + ball.getHeight()));
+                    brickCount--;
                 }
                 ball.setDx(-ball.getDx());
             }
@@ -120,29 +128,40 @@ public class BreakoutProgram extends GraphicsProgram {
             /*
             Window bounds and what to do when ball hits a corner of window
              */
-            if (ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX) { // If ball goes beyond window width, reverse X direction
+            if (ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX) {
+            // If ball goes beyond window width, reverse X direction
                 ball.setDx(-ball.getDx());
-            } else if (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX) { // If ball goes below window height,
-                // reverse Y direction
+            }
+            if (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX
+                    && ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX) {
+                    // If ball goes below window height, reverse Y direction
                 ball.setDy(-ball.getDy());
-            } else if (ball.getX() <= 0) { // If ball goes left of window width, reverse X direction
+            }
+            if (ball.getX() <= 0) {
+            // If ball goes left of window width, reverse X direction
                 ball.setDx(-ball.getDx());
-            } else if (ball.getY() <= 0) { // If ball goes above window height, reverse Y direction
+            }
+            if (ball.getY() <= 0) {
+            // If ball goes above window height, reverse Y direction
                 ball.setDy(-ball.getDy());
-            } else if ((ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX)
+            }
+            if ((ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX)
                     && (ball.getY() + ball.getHeight()) >= WINDOW_HEIGHT_MAX) {
                 // If it hits bottom right corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
-            } else if ((ball.getX() <= 0) && (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX)) {
+            }
+            if ((ball.getX() <= 0) && (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX)) {
                 // If it hits the bottom left corner of window , reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
-            } else if ((ball.getX() <= 0) && (ball.getY() <= 0)) {
+            }
+            if ((ball.getX() <= 0) && (ball.getY() <= 0)) {
                 // If it hits top left corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
-            } else if ((ball.getX() >= WINDOW_WIDTH_MAX) && (ball.getY() <= 0)) {
+            }
+            if ((ball.getX() >= WINDOW_WIDTH_MAX) && (ball.getY() <= 0)) {
                 // if it hits top right corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
