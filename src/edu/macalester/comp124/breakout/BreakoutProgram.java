@@ -55,6 +55,7 @@ public class BreakoutProgram extends GraphicsProgram {
 
         waitForClick();
         animateBall();
+        printWin();
     }
 
     /* keyListeners pass all events into this method, and this method does things according to
@@ -91,9 +92,8 @@ public class BreakoutProgram extends GraphicsProgram {
     public void animateBall() {
         while (true) {
             ball.move();
-//                If there are no more bricks, print the win message.
+            // If there are no more bricks, break out of the loop
             if (brickCount == 0) {
-                printWin();
                 break;
             }
 //                If the top left corner AND top right corner hit an object, move ball in opposite Y direction.
@@ -153,13 +153,13 @@ public class BreakoutProgram extends GraphicsProgram {
                     && ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX) {
             // If ball goes below window height, reverse Y direction
                 ball.setDy(-ball.getDy());
-//                restarts--;
-//                if (restarts > 0) {
-//                    restart();
-//                } else if (restarts == 0) {
-//                    printGameOver();
-//                    break;
-//                }
+                restarts--;
+                if (restarts != 0) {
+                    restart();
+                } else {
+                    printGameOver();
+                    break;
+                }
             }
             if (ball.getX() <= 0) {
             // If ball goes left of window width, reverse X direction
