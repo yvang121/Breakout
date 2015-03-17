@@ -1,13 +1,11 @@
 package edu.macalester.comp124.breakout;
 
-import acm.graphics.GOval;
 import acm.program.GraphicsProgram;
 import acm.util.RandomGenerator;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
 
 /**
  * Main GraphicsProgram for the breakout game described
@@ -35,6 +33,7 @@ public class BreakoutProgram extends GraphicsProgram {
     public void init() {
         addKeyListeners();
     }
+
     /*
     Run method for the Breakout program.
      */
@@ -46,7 +45,7 @@ public class BreakoutProgram extends GraphicsProgram {
         createWall();
 
         paddle = new Paddle();
-        add(paddle, getWidth()/2 - paddle.getWidth()/2, getHeight() - PADDLE_HEIGHT_PLACEMENT);
+        add(paddle, getWidth() / 2 - paddle.getWidth() / 2, getHeight() - PADDLE_HEIGHT_PLACEMENT);
 
         ball = new Ball();
         double randXPos = randX.nextDouble(0, WINDOW_WIDTH_MAX - ball.getWidth());
@@ -55,7 +54,9 @@ public class BreakoutProgram extends GraphicsProgram {
 
         waitForClick();
         animateBall();
-        printWin();
+        if (brickCount == 0) {
+            printWin();
+        }
     }
 
     /* keyListeners pass all events into this method, and this method does things according to
@@ -146,13 +147,13 @@ public class BreakoutProgram extends GraphicsProgram {
             Window bounds and what to do when ball goes past it (width/height of window).
              */
             if (ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX) {
-            // If ball goes beyond window width, reverse X direction
+                // If ball goes beyond window width, reverse X direction
                 ball.setDx(-ball.getDx());
             }
             if (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX
                     && ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX) {
-            // If ball goes below window height, reverse Y direction
-                ball.setDy(-ball.getDy());
+                // If ball goes below window height, reverse Y direction
+//                ball.setDy(-ball.getDy());
                 restarts--;
                 if (restarts != 0) {
                     restart();
@@ -160,13 +161,14 @@ public class BreakoutProgram extends GraphicsProgram {
                     printGameOver();
                     break;
                 }
+                break;
             }
             if (ball.getX() <= 0) {
-            // If ball goes left of window width, reverse X direction
+                // If ball goes left of window width, reverse X direction
                 ball.setDx(-ball.getDx());
             }
             if (ball.getY() <= 0) {
-            // If ball goes above window height, reverse Y direction
+                // If ball goes above window height, reverse Y direction
                 ball.setDy(-ball.getDy());
             }
 
@@ -177,7 +179,7 @@ public class BreakoutProgram extends GraphicsProgram {
                     && (ball.getX() + ball.getHeight() + ball.getWidth() >= WINDOW_WIDTH_MAX)
                     && (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX)
                     && (ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX)) {
-            // If it hits bottom right corner of window, reverse X and Y direction
+                // If it hits bottom right corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
             }
@@ -185,7 +187,7 @@ public class BreakoutProgram extends GraphicsProgram {
                     && (ball.getX() + ball.getHeight() <= 0)
                     && (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX)
                     && (ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX)) {
-            // If it hits the bottom left corner of window , reverse X and Y direction
+                // If it hits the bottom left corner of window , reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
             }
@@ -193,7 +195,7 @@ public class BreakoutProgram extends GraphicsProgram {
                     && (ball.getX() + ball.getHeight() <= 0)
                     && (ball.getY() <= 0)
                     && (ball.getY() + ball.getWidth()) <= 0) {
-            // If it hits top left corner of window, reverse X and Y direction
+                // If it hits top left corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
             }
@@ -201,7 +203,7 @@ public class BreakoutProgram extends GraphicsProgram {
                     && (ball.getX() + ball.getHeight() + ball.getWidth() >= WINDOW_WIDTH_MAX)
                     && (ball.getY() <= 0)
                     && (ball.getY() + ball.getWidth() <= 0)) {
-            // if it hits top right corner of window, reverse X and Y direction
+                // if it hits top right corner of window, reverse X and Y direction
                 ball.setDx(-ball.getDx());
                 ball.setDy(-ball.getDy());
             }
