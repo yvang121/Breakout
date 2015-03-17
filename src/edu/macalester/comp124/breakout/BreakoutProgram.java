@@ -24,7 +24,6 @@ public class BreakoutProgram extends GraphicsProgram {
     int restarts = 3; // Maximum restarts is 3.
     int brickCount = 100; // 10 rows by 10 columns = 100 bricks.
 
-
     /**
     Constant variables.
     @param PADDLE_HEIGHT_PLACEMENT is placing the paddle height above minimum window height by 50.
