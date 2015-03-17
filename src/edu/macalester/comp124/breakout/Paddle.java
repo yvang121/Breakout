@@ -8,6 +8,11 @@ import java.awt.*;
  * Created by Ye Vang on 3/11/2015.
  */
 public class Paddle extends GRect{
+    /*
+    Constant variables.
+    @param PADDLE_WIDTH is set to 100 pixels across.
+    @param PADDLE_HEIGHT is set to be 10 pixels up and down.
+     */
     private static final int PADDLE_WIDTH = 100;
     private static final int PADDLE_HEIGHT = 10;
 

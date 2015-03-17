@@ -8,13 +8,19 @@ import java.awt.*;
  * Created by Ye Vang on 3/11/2015.
  */
 public class Ball extends GOval {
+    /*
+    Constant variables.
+    @param BALL_RADIUS which sets the ball radius to 15 pixels.
+    @param dx is the number of pixels the ball moves in the x direction.
+    @param dy is the number of pixels the ball moves in the y direction.
+     */
     private static final int BALL_RADIUS = 15;
     private double dx = 7;
     private double dy = 7;
 
     /*
-    Creates the ball object with a radius of 15 (doesn't change),
-    and extends a the GOval object, meaning the ball is a GOval.
+    Creates the ball object with a radius of 15 pixels (doesn't change),
+    and extends a the GOval object, meaning the ball is a GOval object.
     Filled with color white.
      */
     public Ball() {
@@ -39,6 +45,7 @@ public class Ball extends GOval {
 
     /*
     Allows for a new value to be set for dx.
+    @param newValue which will pass a value to set the dx to.
      */
     public void setDx(double newValue) {
         dx = newValue;
@@ -46,6 +53,7 @@ public class Ball extends GOval {
 
     /*
     Allows for a new value to be set for dy.
+    @param newValue which will pass a value to set the dy to.
      */
     public void setDy(double newValue) {
         dy = newValue;

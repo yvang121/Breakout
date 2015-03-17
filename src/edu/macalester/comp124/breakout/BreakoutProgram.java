@@ -13,14 +13,25 @@ import java.awt.event.KeyEvent;
  *
  */
 public class BreakoutProgram extends GraphicsProgram {
+    /*
+    Initialize GObjects, and random objects for use later on.
+     */
     Paddle paddle;
     Ball ball = new Ball();
     Brick brick = new Brick();
     RandomGenerator randX = new RandomGenerator();
     RandomGenerator randY = new RandomGenerator();
-    int restarts = 3;
-    int brickCount = 100;
+    int restarts = 3; // Maximum restarts is 3.
+    int brickCount = 100; // 10 rows by 10 columns = 100 bricks.
 
+    /*
+    Constant variables.
+    @param PADDLE_HEIGHT_PLACEMENT is placing the paddle height above minimum window height by 50.
+    @param PADDLE_MOVE moves paddle by 16 pixels left and right.
+    @param WINDOW_WIDTH_MAX sets the maximum width of the window.
+    @param WINDOW_HEIGHT_MAX sets the maximum height of the window.
+    @param WALL_PLACEMENT_Y sets the start of the wall down 100 pixels.
+     */
     private static final int PADDLE_HEIGHT_PLACEMENT = 50;
     private static final int PADDLE_MOVE = 16;
     private static final double WINDOW_WIDTH_MAX = 900;
@@ -97,7 +108,7 @@ public class BreakoutProgram extends GraphicsProgram {
     public void animateBall() {
         while (true) {
             ball.move();
-            // If there are no more bricks, break out of the loop
+            // If there are no more bricks, break out of the while loop
             if (brickCount == 0) {
                 break;
             }
