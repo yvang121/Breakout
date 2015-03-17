@@ -28,14 +28,16 @@ public class BreakoutProgram extends GraphicsProgram {
     private static final int WALL_PLACEMENT_Y = 100;
 
     /*
-    Add listeners for keyboard events.
+    Add listeners for keyboard events that initialize before the run method.
      */
     public void init() {
         addKeyListeners();
     }
 
     /*
-    Run method for the Breakout program.
+    Run method for the Breakout program. Sets background color, window size,
+    creates brick wall, adds paddle, ball, animates ball and checks if user
+    has achieved the win condition.
      */
     public void run() {
         setBackground(Color.DARK_GRAY);
@@ -88,7 +90,9 @@ public class BreakoutProgram extends GraphicsProgram {
 
     /*
     The method that contains all of the ball's behaviors, as well as cases in which it can encounter,
-    and respond to them accordingly.
+    and respond to them accordingly. Breaks bricks, bounces within the bounds of designated window,
+    if it falls below the designated window height at the bottom, restart (max: 3) and breaks out
+    of loop if it equals 0 (no more restarts), or if there are no more bricks.
      */
     public void animateBall() {
         while (true) {
@@ -235,7 +239,7 @@ public class BreakoutProgram extends GraphicsProgram {
     }
 
     /*
-    Method that stores the window popup in the case that there are no more bricks.
+    Method that shows the window popup in the case that there are no more bricks.
      */
     public void printWin() {
         JOptionPane.showMessageDialog(null, "Congratulations! You win an imaginary cookie!",
@@ -243,12 +247,13 @@ public class BreakoutProgram extends GraphicsProgram {
     }
 
     /*
-    Method that stores the window popup in the case that there are no more restarts.
+    Method that shows the window popup in the case that there are no more restarts.
      */
     public void printGameOver() {
         JOptionPane.showMessageDialog(null, "No more restarts! Sorry!",
                 "Out of Restarts", JOptionPane.ERROR_MESSAGE);
     }
+
     /*
     Restart method is called when the user fails to hit the ball. Resets ball and calls animate method.
      */
