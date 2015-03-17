@@ -170,7 +170,9 @@ public class BreakoutProgram extends GraphicsProgram {
             if (ball.getY() + ball.getHeight() >= WINDOW_HEIGHT_MAX
                     && ball.getY() + ball.getHeight() + ball.getWidth() >= WINDOW_HEIGHT_MAX) {
                 // If ball goes below window height, reverse Y direction
-//                ball.setDy(-ball.getDy());
+
+//                ball.setDy(-ball.getDy());    // Comment this in, and comment out
+//                //from <if restarts> to 2nd <break;> for fast brick breaking; (set ball pause accordingly)
                 restarts--;
                 if (restarts != 0) {
                     restart();
