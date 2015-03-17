@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
  *
  */
 public class BreakoutProgram extends GraphicsProgram {
-    /*
+    /**
     Initialize GObjects, and random objects for use later on.
      */
     Paddle paddle;
@@ -24,7 +24,8 @@ public class BreakoutProgram extends GraphicsProgram {
     int restarts = 3; // Maximum restarts is 3.
     int brickCount = 100; // 10 rows by 10 columns = 100 bricks.
 
-    /*
+
+    /**
     Constant variables.
     @param PADDLE_HEIGHT_PLACEMENT is placing the paddle height above minimum window height by 50.
     @param PADDLE_MOVE moves paddle by 16 pixels left and right.
@@ -38,14 +39,14 @@ public class BreakoutProgram extends GraphicsProgram {
     private static final double WINDOW_HEIGHT_MAX = 800;
     private static final int WALL_PLACEMENT_Y = 100;
 
-    /*
+    /**
     Add listeners for keyboard events that initialize before the run method.
      */
     public void init() {
         addKeyListeners();
     }
 
-    /*
+    /**
     Run method for the Breakout program. Sets background color, window size,
     creates brick wall, adds paddle, ball, animates ball and checks if user
     has achieved the win condition.
@@ -72,7 +73,8 @@ public class BreakoutProgram extends GraphicsProgram {
         }
     }
 
-    /* keyListeners pass all events into this method, and this method does things according to
+    /**
+     * keyListeners pass all events into this method, and this method does things according to
     the input that was given. In this case, we're telling it what to do in the case of right and
     left arrows being pressed, and move the paddle. Restricts paddle to a certain position along
     the width of the window.
@@ -99,7 +101,7 @@ public class BreakoutProgram extends GraphicsProgram {
         }
     }
 
-    /*
+    /**
     The method that contains all of the ball's behaviors, as well as cases in which it can encounter,
     and respond to them accordingly. Breaks bricks, bounces within the bounds of designated window,
     if it falls below the designated window height at the bottom, restart (max: 3) and breaks out
@@ -158,7 +160,7 @@ public class BreakoutProgram extends GraphicsProgram {
                 }
                 ball.setDx(-ball.getDx());
             }
-            /*
+            /**
             Window bounds and what to do when ball goes past it (width/height of window).
              */
             if (ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX) {
@@ -187,7 +189,7 @@ public class BreakoutProgram extends GraphicsProgram {
                 ball.setDy(-ball.getDy());
             }
 
-            /*
+            /**
             If ball hits one of the four corners of the screen;
              */
             if ((ball.getX() + ball.getWidth() >= WINDOW_WIDTH_MAX)
@@ -225,7 +227,7 @@ public class BreakoutProgram extends GraphicsProgram {
         }
     }
 
-    /*
+    /**
     Creates the brick wall for the ball to "break".
      */
     public void createWall() {
@@ -249,7 +251,7 @@ public class BreakoutProgram extends GraphicsProgram {
         }
     }
 
-    /*
+    /**
     Method that shows the window popup in the case that there are no more bricks.
      */
     public void printWin() {
@@ -257,7 +259,7 @@ public class BreakoutProgram extends GraphicsProgram {
                 "Congratulations!", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    /*
+    /**
     Method that shows the window popup in the case that there are no more restarts.
      */
     public void printGameOver() {
@@ -265,7 +267,7 @@ public class BreakoutProgram extends GraphicsProgram {
                 "Out of Restarts", JOptionPane.ERROR_MESSAGE);
     }
 
-    /*
+    /**
     Restart method is called when the user fails to hit the ball. Resets ball and calls animate method.
      */
     public void restart() {
