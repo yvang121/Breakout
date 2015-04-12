@@ -8,9 +8,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
- * Main GraphicsProgram for the breakout game described
- * in exercise 10.10 int the Roberts Textbook.
- *
+ * Main GraphicsProgram for the breakout game 
  */
 public class BreakoutProgram extends GraphicsProgram {
     /**
