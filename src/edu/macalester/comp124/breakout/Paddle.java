@@ -6,6 +6,7 @@ import java.awt.*;
 
 /**
  * Created by Ye Vang on 3/11/2015.
+ * Paddle object class.
  */
 public class Paddle extends GRect{
     /**
