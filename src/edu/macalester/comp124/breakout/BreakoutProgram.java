@@ -277,4 +277,8 @@ public class BreakoutProgram extends GraphicsProgram {
         waitForClick();
         animateBall();
     }
+
+    public static void main(String[] args) {
+        new BreakoutProgram().start(args);
+    }
 }
