@@ -9,4 +9,4 @@ Includes a Brick object class file, Paddle object class, Ball object class and a
 <li>Ball/Brick interactions</li>
 </ul>
 
-You can get a copy of the jar file <a href="https://github.com/yvang121/Breakout/blob/master/out/artifacts/Breakout_jar/Breakout.jar?raw=true">here</a>.
+You can get a copy of the executable jar file <a href="https://github.com/yvang121/Breakout/blob/master/out/artifacts/Breakout_jar/Breakout.jar?raw=true">here</a>.
